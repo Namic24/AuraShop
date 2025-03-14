@@ -90,12 +90,12 @@ export default function Home() {
   }
 
   return (
-    <SafeAreaView className='px-4 bg-gray-500 h-full'>
+    <SafeAreaView className='px-4 bg-gray-900 h-full'>
       <FlatList
         data={products}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <ProductCard 
+          <ProductCard
             productname={item.name}
             productprice={item.price}
             productimage={item.imgurl}
