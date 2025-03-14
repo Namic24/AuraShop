@@ -1,3 +1,4 @@
+//ProductCard.tsx
 import { View, Text, Image } from 'react-native'
 import React from 'react'
 import { icons } from '@/constants'
@@ -11,10 +12,10 @@ export default function ProductCard({
     <View className="flex flex-col items-center px-4 my-2">
       <View className="flex flex-row gap-3 items-start">
         <View className="flex justify-center items-center flex-row flex-1">
-          <View className="w-[40px] h-[40px] rounded-lg border border-gray-500 flex justify-center items-center p-0.5">
+          <View className="w-[90px] h-[90px] rounded-lg border border-gray-500 flex justify-center items-center p-0.5">
             <Image
               source={{uri: productimage}}
-              className="rounded-lg"
+              className="w-full h-full rounded-lg"
               resizeMode="cover"
             />
           </View>
@@ -36,7 +37,7 @@ export default function ProductCard({
         </View>
 
         <View className="pt-2">
-          <Image source={icons.menu} className="w-1 h-5 " resizeMode="contain" />
+          <Image source={icons.menu} className="w-5 h-5" resizeMode="contain" />
         </View>
       </View>
     </View>
