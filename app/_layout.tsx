@@ -36,7 +36,7 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
   return(
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <View className="h-screen">
+      <View className="h-screen ">
         <StatusBar className={colorScheme === 'dark' ? 'bg-black text-white': 'bg-white text-black'} />
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />

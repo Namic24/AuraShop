@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
+import { TextInput, TouchableOpacity, Image } from "react-native";
+import { View, Text } from "@/components/Themed";
 
 import { icons } from "../constants";
 
@@ -15,20 +16,19 @@ const FormField = ({
 
     return (
         <View className={`space-y-2 ${otherStyles}`}>
-            <Text className="text-base text-gray-100 font-pmedium mb-4">{title}</Text>
+            <Text className="text-base font-pmedium mb-4">{title}</Text>
 
-            <View className="w-full h-16 px-4 bg-black-100 rounded-2xl border-2 border-black-200 focus:border-secondary flex flex-row items-center">
+            <View className="w-full h-16 px-4 mb-2 rounded-2xl border-2 border-black-200 dark:border-gray-600 focus:border-secondary flex flex-row items-center">
                 <TextInput
-                    className="flex-1 text-white font-psemibold text-base"
+                    className="flex-1 font-psemibold text-base dark:!text-white !text-black"
                     value={value}
                     placeholder={placeholder}
-                    placeholderTextColor="#7B7B8B"
                     onChangeText={handleChangeText}
-                    secureTextEntry={title === "Password" && !showPassword}
+                    secureTextEntry={title === "รหัสผ่าน" && !showPassword}
                     {...props}
                 />
 
-                {title === "Password" && (
+                {title === "รหัสผ่าน" && (
                     <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
                         <Image
                             source={!showPassword ? icons.eye : icons.eyeHide}

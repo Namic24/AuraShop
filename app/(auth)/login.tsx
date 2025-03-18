@@ -1,12 +1,13 @@
 import { Dimensions, ScrollView, Text, View, Image, Alert, KeyboardAvoidingView, Platform } from 'react-native'
 import { SafeAreaView, } from 'react-native-safe-area-context'
 import images from '@/constants/images'
-import CustomButton from '@/components/CustomButtom'
-import FormField from '@/components/FromField'
+import CustomButton from '@/components/CustomButton'
+import FormField from '@/components/FormField'
 import { useState } from 'react'
 import Button from '@/components/Button'
 import { router } from 'expo-router'
 import { supabase } from '@/utils/supabase'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function login() {
 
@@ -39,6 +40,10 @@ export default function login() {
       Alert.alert("Login Failed", error.message)
     } else {
       console.log('Token:', data.session?.access_token) // Log the token
+      await AsyncStorage.setItem("token", data.session?.access_token)   
+      await AsyncStorage.setItem('isLoggedIn' , 'true'); 
+
+
       Alert.alert(
         'Login Successful',
         'You have successfully registered. Press OK to login.',
